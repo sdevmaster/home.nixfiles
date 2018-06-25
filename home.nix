@@ -24,6 +24,7 @@
 		enable = true;
 		sessionVariables = {
 			ZSH_TMUX_AUTOSTART = "true";
+POWERLINE_CONFIG_OVERRIDES = "common.term_truecolor=true;common.default_top_theme=\\\"ascii\\\"";
 		};
 		initExtra = ''
 		'';
@@ -72,7 +73,9 @@ source "${pkgs.python27Packages.powerline}/share/tmux/powerline.conf"
 		".ssh/id_rsa.pub".source = ./sshKeys/id_rsa.pub;
 		# ".zshrc".source = ./zsh/zshrc
 	};
-	packages = [ pkgs.tmux pkgs.python27Packages.powerline pkgs.powerline-fonts ];
+	packages = with pkgs; [ 
+		tmux python27Packages.powerline
+        ];
   };
   nixpkgs.overlays = [(self: super: {
     }

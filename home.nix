@@ -27,6 +27,7 @@
 POWERLINE_CONFIG_OVERRIDES = "common.term_truecolor=true;common.default_top_theme=\\\"ascii\\\"";
 		};
 		initExtra = ''
+eval $(${pkgs.thefuck}/bin/thefuck --alias)
 		'';
 		plugins = [
 			{
@@ -75,6 +76,7 @@ source "${pkgs.python27Packages.powerline}/share/tmux/powerline.conf"
 	};
 	packages = with pkgs; [ 
 		tmux python27Packages.powerline
+		thefuck
         ];
   };
   nixpkgs.overlays = [(self: super: {

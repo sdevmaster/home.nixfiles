@@ -24,7 +24,6 @@
 		enable = true;
 		sessionVariables = {
 			ZSH_TMUX_AUTOSTART = "true";
-POWERLINE_CONFIG_OVERRIDES = "common.term_truecolor=true;common.default_top_theme=\\\"ascii\\\"";
 		};
 		initExtra = ''
 		'';
@@ -67,14 +66,14 @@ POWERLINE_CONFIG_OVERRIDES = "common.term_truecolor=true;common.default_top_them
   home = {
 	file = {
 		".tmux.conf".text = pkgs.lib.readFile ./dotfiles/tmux.conf + ''
-source "${pkgs.python27Packages.powerline}/share/tmux/powerline.conf"
+source "${pkgs.python36Packages.powerline}/share/tmux/powerline.conf"
 			'';
 		".ssh/id_rsa".source = ./sshKeys/id_rsa;
 		".ssh/id_rsa.pub".source = ./sshKeys/id_rsa.pub;
 		# ".zshrc".source = ./zsh/zshrc
 	};
 	packages = with pkgs; [ 
-		tmux python27Packages.powerline
+		tmux python36Packages.powerline
         ];
   };
   nixpkgs.overlays = [(self: super: {

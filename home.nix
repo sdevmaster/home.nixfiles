@@ -70,8 +70,8 @@ eval $(${pkgs.thefuck}/bin/thefuck --alias)
 		".tmux.conf".text = pkgs.lib.readFile ./dotfiles/tmux.conf + ''
 source "${pkgs.python27Packages.powerline}/share/tmux/powerline.conf"
 			'';
-		".ssh/id_rsa".source = ./sshKeys/id_rsa;
-		".ssh/id_rsa.pub".source = ./sshKeys/id_rsa.pub;
+		# ".ssh/id_rsa".source = ./sshKeys/id_rsa;
+		# ".ssh/id_rsa.pub".source = ./sshKeys/id_rsa.pub;
 		# ".zshrc".source = ./zsh/zshrc
 	};
 	packages = with pkgs; [ 
